@@ -2,40 +2,62 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XBZ Esport</title>
 
 <style>
 body{
   margin:0;
-  font-family: Arial;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
+  font-family: Arial, sans-serif;
+  background: #0b0b0f;
   color:white;
-  text-align:center;
 }
 
+/* HEADER */
 header{
-  padding:30px;
+  padding:60px 20px;
+  text-align:center;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
   border-bottom:2px solid #ff7a00;
 }
 
-h1{
-  color:#ff7a00;
+header h1{
   font-size:60px;
   margin:0;
+  color:#ff7a00;
 }
 
-p{
-  color:#ccc;
+header p{
+  color:#bbb;
+  margin-top:10px;
 }
 
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  margin:10px;
+  padding:12px 25px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  background: linear-gradient(90deg,#ff7a00,#ff3c00);
+  color:black;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+/* NAV */
 nav{
-  margin-top:15px;
+  margin-top:20px;
 }
 
 nav a{
   color:white;
+  margin:10px;
   text-decoration:none;
-  margin:15px;
   font-weight:bold;
 }
 
@@ -43,71 +65,28 @@ nav a:hover{
   color:#ff7a00;
 }
 
+/* SECTIONS */
 section{
-  padding:80px 20px;
+  padding:60px 20px;
+  text-align:center;
   border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
-/* DISCORD BUTTON */
-.discord-btn{
-  display:inline-block;
-  margin-top:20px;
-  background: linear-gradient(90deg, #ff7a00, #ff3c00);
-  color:black;
-  padding:15px 35px;
-  border-radius:12px;
-  font-weight:bold;
-  text-decoration:none;
-  box-shadow:0 0 20px rgba(255,122,0,0.4);
-  transition:0.3s;
-}
-
-.discord-btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 35px rgba(255,122,0,0.7);
-}
-
-/* FORM */
-form{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-input, select, textarea{
+.card{
+  background:#15151b;
+  padding:20px;
+  margin:20px auto;
   width:80%;
-  max-width:400px;
-  padding:10px;
-  margin:8px 0;
-  border-radius:8px;
-  border:none;
-  text-align:center;
-}
-
-textarea{
-  height:100px;
-}
-
-form button{
-  background:linear-gradient(90deg,#ff7a00,#ff3c00);
-  border:none;
-  padding:15px 40px;
-  font-size:18px;
+  max-width:600px;
   border-radius:12px;
-  cursor:pointer;
-  color:black;
-  font-weight:bold;
-  transition:0.3s;
-  box-shadow:0 0 20px rgba(255,122,0,0.3);
+  border:1px solid #222;
 }
 
-form button:hover{
-  transform:scale(1.1);
-  box-shadow:0 0 30px rgba(255,122,0,0.6);
-}
-
-input[placeholder*="Tracker"]{
-  display:none;
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#666;
 }
 </style>
 
@@ -115,156 +94,58 @@ input[placeholder*="Tracker"]{
 
 <body>
 
-<header id="accueil">
+<header>
+  <h1>🦇 XBZ ESPORT</h1>
+  <p>Structure compétitive en développement</p>
 
-<h1>🦇 XBZ ESPORT</h1>
-<p>Structure compétitive en développement</p>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#equipes">Équipes</a>
+    <a href="#recrutement">Recrutement</a>
+    <a href="#support">Support</a>
+  </nav>
 
-<nav>
-  <a href="#accueil">Accueil</a>
-  <a href="#equipes">Équipes</a>
-  <a href="#recrutement">Recrutement</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<a class="discord-btn" href="https://discord.gg/w7s3rBPsZ6" target="_blank">
-  🔥 Rejoindre Discord
-</a>
-
+  <div>
+    <a class="btn" href="https://discord.gg/w7s3rBPsZ6" target="_blank">Rejoindre Discord</a>
+    <a class="btn" href="#recrutement">Postuler</a>
+  </div>
 </header>
 
-<section>
-<h2>Rejoins XBZ Esport</h2>
-<p>Nous sommes actifs sur Rocket League et Warzone</p>
+<section id="accueil">
+  <div class="card">
+    <h2>Bienvenue sur XBZ</h2>
+    <p>Une structure esport en pleine évolution 🚀</p>
+  </div>
 </section>
 
 <section id="equipes">
-<h2>Équipes XBZ</h2>
-<ul style="list-style:none;padding:0;">
-  <li>🚗 Rocket League</li>
-  <li>🔫 Warzone</li>
-</ul>
+  <div class="card">
+    <h2>Nos équipes</h2>
+    <p>🚗 Rocket League</p>
+    <p>🔫 Warzone</p>
+  </div>
 </section>
 
 <section id="recrutement">
-
-<h2>Recrutement XBZ</h2>
-
-<form>
-
-<input type="text" placeholder="Pseudo" required>
-<input type="number" placeholder="Âge" required>
-<input type="text" placeholder="Discord (ex: pseudo#1234)" required>
-
-<select required>
-  <option>Choisis ton jeu</option>
-  <option>Rocket League</option>
-  <option>Warzone</option>
-</select>
-
-<input type="text" placeholder="Rang / Niveau">
-<input type="text" placeholder="Lien Rocket League Tracker (si RL)">
-<textarea placeholder="Pourquoi veux-tu rejoindre XBZ ?"></textarea>
-
-<button type="submit">Envoyer ma candidature</button>
-
-</form>
-
+  <div class="card">
+    <h2>Recrutement</h2>
+    <p>➡️ Système complet arrive à l'étape suivante</p>
+    <a class="btn" href="#support">Besoin d’aide ?</a>
+  </div>
 </section>
 
-<section id="contact">
-<h2>Contact</h2>
-<a class="discord-btn" href="https://discord.gg/w7s3rBPsZ6" target="_blank">
-  💬 Ouvrir Discord
-</a>
+<section id="support">
+  <div class="card">
+    <h2>Support XBZ</h2>
+    <p>📩 Demande d’aide ou contact staff</p>
+    <a class="btn" href="mailto:xbzesport1@gmail.com">Contacter par mail</a>
+    <a class="btn" href="https://discord.gg/w7s3rBPsZ6">Support Discord</a>
+  </div>
 </section>
 
-<script>
-  function getCooldown() {
-  return localStorage.getItem("xbz_cooldown");
-}
+<footer>
+  © XBZ Esport - Tous droits réservés
+</footer>
 
-function setCooldown(days) {
-  const now = Date.now();
-  const expire = now + days * 24 * 60 * 60 * 1000;
-  localStorage.setItem("xbz_cooldown", expire);
-}
-
-function getTimeLeft() {
-  const expire = parseInt(getCooldown());
-  if (!expire) return 0;
-  return expire - Date.now();
-}
-
-function formatTime(ms) {
-  const days = Math.floor(ms / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
-  return `${days}j ${hours}h`;
-}
-const form = document.querySelector("form");
-const gameSelect = document.querySelector("select");
-const rlInput = document.querySelector("input[placeholder*='Tracker']");
-
-function checkGame(){
-  if(gameSelect.value === "Rocket League"){
-    rlInput.style.display = "block";
-  } else {
-    rlInput.style.display = "none";
-    rlInput.value = "";
-  }
-}
-
-gameSelect.addEventListener("change", checkGame);
-checkGame();
-
-function generateID(){
-  return "XBZ-" + Math.floor(Math.random() * 99999);
-}
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const id = generateID();
-
-  const pseudo = form[0].value;
-  const age = form[1].value;
-  const discord = form[2].value;
-  const jeu = form[3].value;
-  const rang = form[4].value;
-  const tracker = form[5].value;
-  const motivation = form[6].value;
-
-  const embed = {
-    username: "XBZ Recrutement",
-    embeds: [{
-      title: "🦇 Nouvelle candidature XBZ",
-      color: 16744192,
-      fields: [
-        { name: "🆔 ID", value: id, inline: false },
-        { name: "Pseudo", value: pseudo, inline: true },
-        { name: "Âge", value: age, inline: true },
-        { name: "Discord", value: discord, inline: false },
-        { name: "Jeu", value: jeu, inline: true },
-        { name: "Rang", value: rang || "Non précisé", inline: true },
-        { name: "Tracker RL", value: tracker || "N/A", inline: false },
-        { name: "Motivation", value: motivation }
-      ],
-      footer: {
-        text: "XBZ Esport - système recrutement"
-      }
-    }]
-  };
-
-  await fetch("https://discord.com/api/webhooks/1522305032609988692/Eb0c4kgWD05zYVguRHR8Uc0HKSxsr6WFkscTOV1UEfKnmeIYH_Un75Vj2w2vz9pXIgwG", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(embed)
-  });
-
-  alert("Candidature envoyée !");
-  form.reset();
-  checkGame();
-});
-</script>
 </body>
 </html>
