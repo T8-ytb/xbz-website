@@ -201,25 +201,6 @@ placeholder="Motivation"></textarea>
 </footer>
 
 <script>
-function getCooldown(){
-  return localStorage.getItem("xbz_cd");
-}
-
-function setCooldown(days){
-  localStorage.setItem("xbz_cd", Date.now() + days*24*60*60*1000);
-}
-
-function timeLeft(){
-  const t = parseInt(getCooldown());
-  if(!t) return 0;
-  return t - Date.now();
-}
-
-function format(ms){
-  const d = Math.floor(ms/86400000);
-  const h = Math.floor((ms%86400000)/3600000);
-  return d+"j "+h+"h";
-}
 
 window.addEventListener("DOMContentLoaded", ()=>{
 
@@ -266,8 +247,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
         body: JSON.stringify(data)
       });
 
-      if(res.ok){
-        setCooldown(21);
+      if(res.ok)
         alert("✅ Candidature envoyée !");
         form.reset();
         update();
