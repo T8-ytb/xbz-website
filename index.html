@@ -62,17 +62,33 @@ section{
   border:1px solid #222;
 }
 
+form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+}
+
 input,select,textarea{
   width:90%;
   max-width:400px;
   padding:10px;
-  margin:8px;
   border-radius:8px;
-  border:none;
-  text-align:center;
+  border:1px solid #222;
+  background:#111;
+  color:white;
+  outline:none;
 }
 
-textarea{height:100px;}
+textarea{
+  height:100px;
+  resize:none;
+}
+
+input:focus,textarea:focus,select:focus{
+  border:1px solid #ff7a00;
+  box-shadow:0 0 10px rgba(255,122,0,0.3);
+}
 
 button{
   padding:12px 30px;
@@ -89,34 +105,10 @@ footer{
   padding:20px;
   color:#666;
 }
-  /* CENTRAGE FORMULAIRE PRO */
-form{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-}
 
-/* améliore les champs */
-input, select, textarea{
-  background:#111;
-  color:white;
-  border:1px solid #222;
-  outline:none;
-}
-
-/* placeholder visible */
-input::placeholder,
-textarea::placeholder{
-  color:#aaa;
-}
-
-/* focus propre */
-input:focus,
-select:focus,
-textarea:focus{
-  border:1px solid #ff7a00;
-  box-shadow:0 0 10px rgba(255,122,0,0.3);
+#status{
+  margin-top:10px;
+  color:#ff7a00;
 }
 </style>
 </head>
@@ -175,15 +167,13 @@ textarea:focus{
 
       <input type="text" placeholder="Rang">
       <textarea placeholder="Expérience"></textarea>
-      <textarea textarea{
-  height:70px; 
-  resize:none;
-placeholder="Motivation"></textarea>
+      <textarea placeholder="Motivation" required></textarea>
 
       <button type="submit">Envoyer</button>
+
     </form>
 
-    <p id="cooldown" style="color:#ff7a00;margin-top:10px;"></p>
+    <p id="status"></p>
 
   </div>
 </section>
@@ -201,16 +191,12 @@ placeholder="Motivation"></textarea>
 </footer>
 
 <script>
-
-window.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.querySelector("#form");
-  const cd = document.getElementById("cooldown");
+  const status = document.getElementById("status");
 
-  setInterval(update,1000);
-  update();
-
-  form.addEventListener("submit", async (e)=>{
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const data = {
@@ -226,6 +212,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
       motiv: form[9].value
     };
 
+    status.innerText = "⏳ Envoi en cours...";
+
     try {
       const res = await fetch("https://xbz-bot.onrender.com/recrutement", {
         method: "POST",
@@ -235,18 +223,18 @@ window.addEventListener("DOMContentLoaded", ()=>{
         body: JSON.stringify(data)
       });
 
-      if(res.ok)
-        alert("✅ Candidature envoyée !");
+      if (res.ok) {
+        status.innerText = "✅ Candidature envoyée avec succès !";
         form.reset();
-        update();
       } else {
-        alert("❌ Erreur serveur");
+        status.innerText = "❌ Erreur serveur";
       }
 
     } catch (err) {
       console.error(err);
-      alert("❌ Erreur de connexion");
+      status.innerText = "❌ Erreur de connexion";
     }
+
   });
 
 });
