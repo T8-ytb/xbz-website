@@ -128,12 +128,40 @@ footer{
 
 <section id="recrutement">
   <div class="card">
-    <h2>Recrutement</h2>
-    <p>➡️ Système complet arrive à l'étape suivante</p>
-    <a class="btn" href="#support">Besoin d’aide ?</a>
+
+    <h2>📝 Recrutement</h2>
+
+    <form id="form">
+
+      <input type="text" placeholder="Nom + Prénom" required>
+      <input type="number" placeholder="Âge" required>
+
+      <input type="text" placeholder="Pays résidence" required>
+      <input type="text" placeholder="Pays naissance" required>
+
+      <input type="text" placeholder="Discord" required>
+      <input type="text" placeholder="Pseudo jeu" required>
+
+      <select required>
+        <option value="">Jeu</option>
+        <option>Rocket League</option>
+        <option>Warzone</option>
+      </select>
+
+      <input type="text" placeholder="Rang">
+
+      <textarea placeholder="Expérience"></textarea>
+      <textarea placeholder="Motivation"></textarea>
+
+      <button type="submit">Envoyer</button>
+
+    </form>
+
+    <p id="cooldown" style="color:#ff7a00;margin-top:10px;"></p>
+
   </div>
 </section>
-
+  
 <section id="support">
   <div class="card">
     <h2>Support XBZ</h2>
