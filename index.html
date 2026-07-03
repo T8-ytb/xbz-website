@@ -89,6 +89,35 @@ footer{
   padding:20px;
   color:#666;
 }
+  /* CENTRAGE FORMULAIRE PRO */
+form{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+/* améliore les champs */
+input, select, textarea{
+  background:#111;
+  color:white;
+  border:1px solid #222;
+  outline:none;
+}
+
+/* placeholder visible */
+input::placeholder,
+textarea::placeholder{
+  color:#aaa;
+}
+
+/* focus propre */
+input:focus,
+select:focus,
+textarea:focus{
+  border:1px solid #ff7a00;
+  box-shadow:0 0 10px rgba(255,122,0,0.3);
+}
 </style>
 </head>
 
