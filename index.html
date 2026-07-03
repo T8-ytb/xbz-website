@@ -154,7 +154,91 @@ footer{
       <textarea placeholder="Motivation"></textarea>
 
       <button type="submit">Envoyer</button>
+<script>
+function getCooldown(){
+  return localStorage.getItem("xbz_cd");
+}
 
+function setCooldown(days){
+  localStorage.setItem("xbz_cd", Date.now() + days*24*60*60*1000);
+}
+
+function timeLeft(){
+  const t = parseInt(getCooldown());
+  if(!t) return 0;
+  return t - Date.now();
+}
+
+function format(ms){
+  const d = Math.floor(ms/86400000);
+  const h = Math.floor((ms%86400000)/3600000);
+  return d+"j "+h+"h";
+}
+
+const form = document.querySelector("#form");
+const cd = document.getElementById("cooldown");
+
+function update(){
+  const t = timeLeft();
+  cd.innerText = t>0 ? "⛔ Repostule dans " + format(t) : "🟢 Recrutement ouvert";
+}
+
+setInterval(update,1000);
+update();
+
+form.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+
+  if(timeLeft()>0){
+    alert("⛔ Tu dois attendre avant de repostuler !");
+    return;
+  }
+
+  const data = {
+    nom:form[0].value,
+    age:form[1].value,
+    pays1:form[2].value,
+    pays2:form[3].value,
+    discord:form[4].value,
+    pseudo:form[5].value,
+    jeu:form[6].value,
+    rang:form[7].value,
+    exp:form[8].value,
+    motiv:form[9].value
+  };
+
+  const embed = {
+    username:"XBZ Recrutement",
+    embeds:[{
+      title:"🦇 Nouvelle candidature XBZ",
+      color:16744192,
+      fields:[
+        {name:"Nom",value:data.nom},
+        {name:"Âge",value:data.age},
+        {name:"Pays résidence",value:data.pays1},
+        {name:"Pays naissance",value:data.pays2},
+        {name:"Discord",value:data.discord},
+        {name:"Pseudo",value:data.pseudo},
+        {name:"Jeu",value:data.jeu},
+        {name:"Rang",value:data.rang || "Non précisé"},
+        {name:"Expérience",value:data.exp || "N/A"},
+        {name:"Motivation",value:data.motiv}
+      ]
+    }]
+  };
+
+  await fetch("TON_WEBHOOK_ICI",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(embed)
+  });
+
+  setCooldown(21); // 21 jours
+  alert("✅ Candidature envoyée !");
+  form.reset();
+  update();
+});
+</script>
     </form>
 
     <p id="cooldown" style="color:#ff7a00;margin-top:10px;"></p>
