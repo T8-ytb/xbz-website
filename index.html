@@ -180,6 +180,27 @@ input[placeholder*="Tracker"]{
 </section>
 
 <script>
+  function getCooldown() {
+  return localStorage.getItem("xbz_cooldown");
+}
+
+function setCooldown(days) {
+  const now = Date.now();
+  const expire = now + days * 24 * 60 * 60 * 1000;
+  localStorage.setItem("xbz_cooldown", expire);
+}
+
+function getTimeLeft() {
+  const expire = parseInt(getCooldown());
+  if (!expire) return 0;
+  return expire - Date.now();
+}
+
+function formatTime(ms) {
+  const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+  return `${days}j ${hours}h`;
+}
 const form = document.querySelector("form");
 const gameSelect = document.querySelector("select");
 const rlInput = document.querySelector("input[placeholder*='Tracker']");
