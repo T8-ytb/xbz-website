@@ -6,109 +6,126 @@
 <title>XBZ Esport</title>
 
 <style>
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background:#0b0b0f;
-  color:white;
+  background: #0a0a0f;
+  color: white;
 }
 
-header{
-  padding:60px 20px;
-  text-align:center;
-  background: radial-gradient(circle at top,#1a1a1a,#000);
-  border-bottom:2px solid #ff7a00;
+/* HEADER */
+header {
+  text-align: center;
+  padding: 80px 20px;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  border-bottom: 2px solid #ff7a00;
 }
 
-header h1{
-  font-size:60px;
-  margin:0;
-  color:#ff7a00;
+header h1 {
+  font-size: 55px;
+  margin: 0;
+  color: #ff7a00;
+  letter-spacing: 2px;
 }
 
-header p{color:#bbb;}
-
-nav a{
-  color:white;
-  margin:10px;
-  text-decoration:none;
-  font-weight:bold;
+header p {
+  color: #aaa;
+  margin-top: 10px;
 }
 
-nav a:hover{color:#ff7a00;}
-
-.btn{
-  display:inline-block;
-  margin:10px;
-  padding:12px 25px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
-  background:linear-gradient(90deg,#ff7a00,#ff3c00);
-  color:black;
+/* NAV */
+nav {
+  margin-top: 20px;
 }
 
-section{
-  padding:60px 20px;
-  text-align:center;
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
 }
 
-.card{
-  background:#15151b;
-  padding:20px;
-  margin:auto;
-  max-width:600px;
-  border-radius:12px;
-  border:1px solid #222;
+nav a:hover {
+  color: #ff7a00;
 }
 
-form{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  align-items:center;
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 25px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff7a00, #ff3c00);
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-input,select,textarea{
-  width:90%;
-  max-width:400px;
-  padding:10px;
-  border-radius:8px;
-  border:1px solid #222;
-  background:#111;
-  color:white;
-  outline:none;
+/* SECTIONS */
+section {
+  padding: 70px 20px;
+  text-align: center;
 }
 
-textarea{
-  height:100px;
-  resize:none;
+.card {
+  background: #15151b;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: auto;
+  border: 1px solid #222;
 }
 
-input:focus,textarea:focus,select:focus{
-  border:1px solid #ff7a00;
-  box-shadow:0 0 10px rgba(255,122,0,0.3);
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
 }
 
-button{
-  padding:12px 30px;
-  background:linear-gradient(90deg,#ff7a00,#ff3c00);
-  border:none;
-  color:black;
-  font-weight:bold;
-  border-radius:10px;
-  cursor:pointer;
+input, select, textarea {
+  width: 90%;
+  max-width: 400px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #222;
+  background: #111;
+  color: white;
+  outline: none;
 }
 
-footer{
-  text-align:center;
-  padding:20px;
-  color:#666;
+input:focus, textarea:focus, select:focus {
+  border: 1px solid #ff7a00;
+  box-shadow: 0 0 10px rgba(255, 122, 0, 0.3);
 }
 
-#status{
-  margin-top:10px;
-  color:#ff7a00;
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff7a00, #ff3c00);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  margin-top: 30px;
 }
 </style>
 </head>
@@ -126,20 +143,20 @@ footer{
     <a href="#support">Support</a>
   </nav>
 
-  <a class="btn" href="https://discord.gg/w7s3rBPsZ6" target="_blank">Discord</a>
+  <a class="btn" href="https://discord.gg/w7s3rBPsZ6" target="_blank">Rejoindre Discord</a>
 </header>
 
 <section id="accueil">
   <div class="card">
     <h2>Bienvenue sur XBZ</h2>
-    <p>Team esport en développement 🚀</p>
+    <p>Une structure esport en pleine évolution 🚀</p>
   </div>
 </section>
 
 <section id="equipes">
   <div class="card">
-    <h2>Équipes</h2>
-    <p>Rocket League / Warzone</p>
+    <h2>Nos équipes</h2>
+    <p>Rocket League • Warzone • Future expansions</p>
   </div>
 </section>
 
@@ -166,11 +183,11 @@ footer{
       </select>
 
       <input type="text" placeholder="Rang">
+
       <textarea placeholder="Expérience"></textarea>
-      <textarea placeholder="Motivation" required></textarea>
+      <textarea placeholder="Motivation"></textarea>
 
-      <button type="submit">Envoyer</button>
-
+      <button type="submit">Envoyer candidature</button>
     </form>
 
     <p id="status"></p>
@@ -191,53 +208,44 @@ footer{
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+document.querySelector("#form").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-  const form = document.querySelector("#form");
-  const status = document.getElementById("status");
+  const form = e.target;
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  const data = {
+    nom: form[0].value,
+    age: form[1].value,
+    pays1: form[2].value,
+    pays2: form[3].value,
+    discord: form[4].value,
+    pseudo: form[5].value,
+    jeu: form[6].value,
+    rang: form[7].value,
+    exp: form[8].value,
+    motiv: form[9].value
+  };
 
-    const data = {
-      nom: form[0].value,
-      age: form[1].value,
-      pays1: form[2].value,
-      pays2: form[3].value,
-      discord: form[4].value,
-      pseudo: form[5].value,
-      jeu: form[6].value,
-      rang: form[7].value,
-      exp: form[8].value,
-      motiv: form[9].value
-    };
+  document.getElementById("status").innerText = "⏳ Envoi...";
 
-    try {
-      status.innerText = "⏳ Envoi en cours...";
+  try {
+    const res = await fetch("https://xbz-bot.onrender.com/recrutement", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
 
-      const res = await fetch("https://xbz-bot.onrender.com/recrutement", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
-
-      if (!res.ok) {
-        status.innerText = "❌ Erreur serveur (Render)";
-        return;
-      }
-
-      status.innerText = "✅ Envoyé avec succès !";
-      form.reset();
-
-    } catch (err) {
-      console.log("ERREUR FETCH :", err);
-      status.innerText = "❌ Erreur de connexion API";
+    if (!res.ok) {
+      document.getElementById("status").innerText = "❌ Erreur serveur";
+      return;
     }
 
-  });
+    document.getElementById("status").innerText = "✅ Envoyé avec succès !";
+    form.reset();
 
+  } catch (err) {
+    document.getElementById("status").innerText = "❌ Erreur connexion API";
+  }
 });
 </script>
 
