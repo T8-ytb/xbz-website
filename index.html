@@ -207,23 +207,11 @@ window.addEventListener("DOMContentLoaded", ()=>{
   const form = document.querySelector("#form");
   const cd = document.getElementById("cooldown");
 
-  function update(){
-    const t = timeLeft();
-    cd.innerText = t>0
-      ? "⛔ Repostule dans " + format(t)
-      : "🟢 Recrutement ouvert";
-  }
-
   setInterval(update,1000);
   update();
 
   form.addEventListener("submit", async (e)=>{
     e.preventDefault();
-
-    if(timeLeft()>0){
-      alert("⛔ Attends avant de repostuler !");
-      return;
-    }
 
     const data = {
       nom: form[0].value,
