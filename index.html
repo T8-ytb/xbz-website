@@ -245,54 +245,40 @@ window.addEventListener("DOMContentLoaded", ()=>{
     }
 
     const data = {
-      nom:form[0].value,
-      age:form[1].value,
-      pays1:form[2].value,
-      pays2:form[3].value,
-      discord:form[4].value,
-      pseudo:form[5].value,
-      jeu:form[6].value,
-      rang:form[7].value,
-      exp:form[8].value,
-      motiv:form[9].value
+      nom: form[0].value,
+      age: form[1].value,
+      pays1: form[2].value,
+      pays2: form[3].value,
+      discord: form[4].value,
+      pseudo: form[5].value,
+      jeu: form[6].value,
+      rang: form[7].value,
+      exp: form[8].value,
+      motiv: form[9].value
     };
 
-    const embed = {
-      username:"XBZ Recrutement",
-      embeds:[{
-        title:"🦇 Nouvelle candidature",
-        color:16744192,
-        fields:[
-          {name:"Nom",value:data.nom},
-          {name:"Âge",value:data.age},
-          {name:"Pays résidence",value:data.pays1},
-          {name:"Pays naissance",value:data.pays2},
-          {name:"Discord",value:data.discord},
-          {name:"Pseudo",value:data.pseudo},
-          {name:"Jeu",value:data.jeu},
-          {name:"Rang",value:data.rang || "N/A"},
-          {name:"Exp",value:data.exp || "N/A"},
-          {name:"Motivation",value:data.motiv}
-        ]
-      }]
-    };
+    try {
+      const res = await fetch("https://xbz-bot.onrender.com/recrutement", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
 
-    await fetch("https://xbz-bot.onrender.com/recrutement", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(data)
-});
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(embed)
-    });
+      if(res.ok){
+        setCooldown(21);
+        alert("✅ Candidature envoyée !");
+        form.reset();
+        update();
+      } else {
+        alert("❌ Erreur serveur");
+      }
 
-    setCooldown(21);
-    alert("✅ Envoyé !");
-    form.reset();
-    update();
+    } catch (err) {
+      console.error(err);
+      alert("❌ Erreur de connexion");
+    }
   });
 
 });
