@@ -9,15 +9,14 @@
 body{
   margin:0;
   font-family: Arial, sans-serif;
-  background: #0b0b0f;
+  background:#0b0b0f;
   color:white;
 }
 
-/* HEADER */
 header{
   padding:60px 20px;
   text-align:center;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
+  background: radial-gradient(circle at top,#1a1a1a,#000);
   border-bottom:2px solid #ff7a00;
 }
 
@@ -27,32 +26,7 @@ header h1{
   color:#ff7a00;
 }
 
-header p{
-  color:#bbb;
-  margin-top:10px;
-}
-
-/* BUTTONS */
-.btn{
-  display:inline-block;
-  margin:10px;
-  padding:12px 25px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
-  background: linear-gradient(90deg,#ff7a00,#ff3c00);
-  color:black;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
-}
-
-/* NAV */
-nav{
-  margin-top:20px;
-}
+header p{color:#bbb;}
 
 nav a{
   color:white;
@@ -61,123 +35,65 @@ nav a{
   font-weight:bold;
 }
 
-nav a:hover{
-  color:#ff7a00;
+nav a:hover{color:#ff7a00;}
+
+.btn{
+  display:inline-block;
+  margin:10px;
+  padding:12px 25px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  background:linear-gradient(90deg,#ff7a00,#ff3c00);
+  color:black;
 }
 
-/* SECTIONS */
 section{
   padding:60px 20px;
   text-align:center;
-  border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .card{
   background:#15151b;
   padding:20px;
-  margin:20px auto;
-  width:80%;
+  margin:auto;
   max-width:600px;
   border-radius:12px;
   border:1px solid #222;
 }
 
-/* FOOTER */
+input,select,textarea{
+  width:90%;
+  max-width:400px;
+  padding:10px;
+  margin:8px;
+  border-radius:8px;
+  border:none;
+  text-align:center;
+}
+
+textarea{height:100px;}
+
+button{
+  padding:12px 30px;
+  background:linear-gradient(90deg,#ff7a00,#ff3c00);
+  border:none;
+  color:black;
+  font-weight:bold;
+  border-radius:10px;
+  cursor:pointer;
+}
+
 footer{
   text-align:center;
-  padding:30px;
+  padding:20px;
   color:#666;
 }
 </style>
-
 </head>
 
 <body>
-<script>
-function getCooldown(){
-  return localStorage.getItem("xbz_cd");
-}
 
-function setCooldown(days){
-  localStorage.setItem("xbz_cd", Date.now() + days*24*60*60*1000);
-}
-
-function timeLeft(){
-  const t = parseInt(getCooldown());
-  if(!t) return 0;
-  return t - Date.now();
-}
-
-function format(ms){
-  const d = Math.floor(ms/86400000);
-  const h = Math.floor((ms%86400000)/3600000);
-  return d+"j "+h+"h";
-}
-
-const form = document.querySelector("#form");
-const cd = document.getElementById("cooldown");
-
-function update(){
-  const t = timeLeft();
-  cd.innerText = t>0 ? "⛔ Repostule dans " + format(t) : "🟢 Recrutement ouvert";
-}
-
-setInterval(update,1000);
-update();
-
-form.addEventListener("submit", async (e)=>{
-  e.preventDefault();
-
-  if(timeLeft()>0){
-    alert("⛔ Tu dois attendre avant de repostuler !");
-    return;
-  }
-
-  const data = {
-    nom:form[0].value,
-    age:form[1].value,
-    pays1:form[2].value,
-    pays2:form[3].value,
-    discord:form[4].value,
-    pseudo:form[5].value,
-    jeu:form[6].value,
-    rang:form[7].value,
-    exp:form[8].value,
-    motiv:form[9].value
-  };
-
-  const embed = {
-    username:"XBZ Recrutement",
-    embeds:[{
-      title:"🦇 Nouvelle candidature XBZ",
-      color:16744192,
-      fields:[
-        {name:"Nom",value:data.nom},
-        {name:"Âge",value:data.age},
-        {name:"Pays résidence",value:data.pays1},
-        {name:"Pays naissance",value:data.pays2},
-        {name:"Discord",value:data.discord},
-        {name:"Pseudo",value:data.pseudo},
-        {name:"Jeu",value:data.jeu},
-        {name:"Rang",value:data.rang || "Non précisé"},
-        {name:"Expérience",value:data.exp || "N/A"},
-        {name:"Motivation",value:data.motiv}
-      ]
-    }]
-  };
-
-  await fetch("TON_WEBHOOK_ICI",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify(embed)
-  });
-
-  setCooldown(21); // 21 jours
-  alert("✅ Candidature envoyée !");
-  form.reset();
-  update();
-});
-</script>
 <header>
   <h1>🦇 XBZ ESPORT</h1>
   <p>Structure compétitive en développement</p>
@@ -189,24 +105,20 @@ form.addEventListener("submit", async (e)=>{
     <a href="#support">Support</a>
   </nav>
 
-  <div>
-    <a class="btn" href="https://discord.gg/w7s3rBPsZ6" target="_blank">Rejoindre Discord</a>
-    <a class="btn" href="#recrutement">Postuler</a>
-  </div>
+  <a class="btn" href="https://discord.gg/w7s3rBPsZ6" target="_blank">Discord</a>
 </header>
 
 <section id="accueil">
   <div class="card">
     <h2>Bienvenue sur XBZ</h2>
-    <p>Une structure esport en pleine évolution 🚀</p>
+    <p>Team esport en développement 🚀</p>
   </div>
 </section>
 
 <section id="equipes">
   <div class="card">
-    <h2>Nos équipes</h2>
-    <p>🚗 Rocket League</p>
-    <p>🔫 Warzone</p>
+    <h2>Équipes</h2>
+    <p>Rocket League / Warzone</p>
   </div>
 </section>
 
@@ -233,11 +145,29 @@ form.addEventListener("submit", async (e)=>{
       </select>
 
       <input type="text" placeholder="Rang">
-
       <textarea placeholder="Expérience"></textarea>
       <textarea placeholder="Motivation"></textarea>
 
       <button type="submit">Envoyer</button>
+    </form>
+
+    <p id="cooldown" style="color:#ff7a00;margin-top:10px;"></p>
+
+  </div>
+</section>
+
+<section id="support">
+  <div class="card">
+    <h2>Support</h2>
+    <a class="btn" href="mailto:xbzesport1@gmail.com">Mail</a>
+    <a class="btn" href="https://discord.gg/w7s3rBPsZ6">Discord</a>
+  </div>
+</section>
+
+<footer>
+© XBZ Esport
+</footer>
+
 <script>
 function getCooldown(){
   return localStorage.getItem("xbz_cd");
@@ -259,89 +189,76 @@ function format(ms){
   return d+"j "+h+"h";
 }
 
-const form = document.querySelector("#form");
-const cd = document.getElementById("cooldown");
+window.addEventListener("DOMContentLoaded", ()=>{
 
-function update(){
-  const t = timeLeft();
-  cd.innerText = t>0 ? "⛔ Repostule dans " + format(t) : "🟢 Recrutement ouvert";
-}
+  const form = document.querySelector("#form");
+  const cd = document.getElementById("cooldown");
 
-setInterval(update,1000);
-update();
-
-form.addEventListener("submit", async (e)=>{
-  e.preventDefault();
-
-  if(timeLeft()>0){
-    alert("⛔ Tu dois attendre avant de repostuler !");
-    return;
+  function update(){
+    const t = timeLeft();
+    cd.innerText = t>0
+      ? "⛔ Repostule dans " + format(t)
+      : "🟢 Recrutement ouvert";
   }
 
-  const data = {
-    nom:form[0].value,
-    age:form[1].value,
-    pays1:form[2].value,
-    pays2:form[3].value,
-    discord:form[4].value,
-    pseudo:form[5].value,
-    jeu:form[6].value,
-    rang:form[7].value,
-    exp:form[8].value,
-    motiv:form[9].value
-  };
+  setInterval(update,1000);
+  update();
 
-  const embed = {
-    username:"XBZ Recrutement",
-    embeds:[{
-      title:"🦇 Nouvelle candidature XBZ",
-      color:16744192,
-      fields:[
-        {name:"Nom",value:data.nom},
-        {name:"Âge",value:data.age},
-        {name:"Pays résidence",value:data.pays1},
-        {name:"Pays naissance",value:data.pays2},
-        {name:"Discord",value:data.discord},
-        {name:"Pseudo",value:data.pseudo},
-        {name:"Jeu",value:data.jeu},
-        {name:"Rang",value:data.rang || "Non précisé"},
-        {name:"Expérience",value:data.exp || "N/A"},
-        {name:"Motivation",value:data.motiv}
-      ]
-    }]
-  };
+  form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
 
-  await fetch("TON_WEBHOOK_ICI",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify(embed)
+    if(timeLeft()>0){
+      alert("⛔ Attends avant de repostuler !");
+      return;
+    }
+
+    const data = {
+      nom:form[0].value,
+      age:form[1].value,
+      pays1:form[2].value,
+      pays2:form[3].value,
+      discord:form[4].value,
+      pseudo:form[5].value,
+      jeu:form[6].value,
+      rang:form[7].value,
+      exp:form[8].value,
+      motiv:form[9].value
+    };
+
+    const embed = {
+      username:"XBZ Recrutement",
+      embeds:[{
+        title:"🦇 Nouvelle candidature",
+        color:16744192,
+        fields:[
+          {name:"Nom",value:data.nom},
+          {name:"Âge",value:data.age},
+          {name:"Pays résidence",value:data.pays1},
+          {name:"Pays naissance",value:data.pays2},
+          {name:"Discord",value:data.discord},
+          {name:"Pseudo",value:data.pseudo},
+          {name:"Jeu",value:data.jeu},
+          {name:"Rang",value:data.rang || "N/A"},
+          {name:"Exp",value:data.exp || "N/A"},
+          {name:"Motivation",value:data.motiv}
+        ]
+      }]
+    };
+
+    await fetch("TON_WEBHOOK_ICI",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(embed)
+    });
+
+    setCooldown(21);
+    alert("✅ Envoyé !");
+    form.reset();
+    update();
   });
 
-  setCooldown(21); // 21 jours
-  alert("✅ Candidature envoyée !");
-  form.reset();
-  update();
 });
 </script>
-    </form>
-
-    <p id="cooldown" style="color:#ff7a00;margin-top:10px;"></p>
-
-  </div>
-</section>
-  
-<section id="support">
-  <div class="card">
-    <h2>Support XBZ</h2>
-    <p>📩 Demande d’aide ou contact staff</p>
-    <a class="btn" href="mailto:xbzesport1@gmail.com">Contacter par mail</a>
-    <a class="btn" href="https://discord.gg/w7s3rBPsZ6">Support Discord</a>
-  </div>
-</section>
-
-<footer>
-  © XBZ Esport - Tous droits réservés
-</footer>
 
 </body>
 </html>
