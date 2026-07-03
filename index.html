@@ -212,9 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
       motiv: form[9].value
     };
 
-    status.innerText = "⏳ Envoi en cours...";
-
     try {
+      status.innerText = "⏳ Envoi en cours...";
+
       const res = await fetch("https://xbz-bot.onrender.com/recrutement", {
         method: "POST",
         headers: {
@@ -223,16 +223,17 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(data)
       });
 
-      if (res.ok) {
-        status.innerText = "✅ Candidature envoyée avec succès !";
-        form.reset();
-      } else {
-        status.innerText = "❌ Erreur serveur";
+      if (!res.ok) {
+        status.innerText = "❌ Erreur serveur (Render)";
+        return;
       }
 
+      status.innerText = "✅ Envoyé avec succès !";
+      form.reset();
+
     } catch (err) {
-      console.error(err);
-      status.innerText = "❌ Erreur de connexion";
+      console.log("ERREUR FETCH :", err);
+      status.innerText = "❌ Erreur de connexion API";
     }
 
   });
