@@ -277,7 +277,13 @@ window.addEventListener("DOMContentLoaded", ()=>{
       }]
     };
 
-    await fetch("TON_WEBHOOK_ICI",{
+    await fetch("https://xbz-bot.onrender.com/recrutement", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(data)
+});
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify(embed)
