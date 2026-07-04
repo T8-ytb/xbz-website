@@ -84,21 +84,15 @@ form {
   align-items: center;
 }
 
-input, select, textarea {
-  width: 90%;
-  max-width: 400px;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #222;
-  background: #111;
-  color: white;
-  outline: none;
-}
+<select id="jeuSelect" required>
+  <option value="">Jeu</option>
+  <option value="Rocket League">Rocket League</option>
+  <option value="Warzone">Warzone</option>
+</select>
 
-input:focus, textarea:focus, select:focus {
-  border: 1px solid #ff7a00;
-  box-shadow: 0 0 10px rgba(255, 122, 0, 0.3);
-}
+<input type="text" id="rltracker"
+placeholder="Lien RL Tracker (Rocket League uniquement)"
+style="display:none;">
 
 textarea {
   height: 100px;
@@ -209,57 +203,63 @@ footer {
 </footer>
 
 <script>
-document.querySelector("#form").addEventListener("submit", async (e) => {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
 
-  const form = e.target;
-const jeuSelect = document.querySelector("select");
-const rlField = document.getElementById("rltracker");
+  const form = document.querySelector("#form");
+  const jeuSelect = document.getElementById("jeuSelect");
+  const rlField = document.getElementById("rltracker");
 
-jeuSelect.addEventListener("change", () => {
-  if (jeuSelect.value === "Rocket League") {
-    rlField.style.display = "block";
-    rlField.required = true;
-  } else {
-    rlField.style.display = "none";
-    rlField.required = false;
-    rlField.value = "";
-  }
-});
-  const data = {
-    nom: form[0].value,
-    age: form[1].value,
-    pays1: form[2].value,
-    pays2: form[3].value,
-    discord: form[4].value,
-    pseudo: form[5].value,
-    jeu: form[6].value,
-    rang: form[7].value,
-    exp: form[8].value,
-    motiv: form[9].value
-		rltracker: rlField.value || ""
-  };
+  jeuSelect.addEventListener("change", () => {
+    if (jeuSelect.value === "Rocket League") {
+      rlField.style.display = "block";
+      rlField.required = true;
+    } else {
+      rlField.style.display = "none";
+      rlField.required = false;
+      rlField.value = "";
+    }
+  });
 
-  document.getElementById("status").innerText = "⏳ Envoi...";
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  try {
-    const res = await fetch("https://xbz-bot.onrender.com/recrutement", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
+    const data = {
+      nom: form[0].value,
+      age: form[1].value,
+      pays1: form[2].value,
+      pays2: form[3].value,
+      discord: form[4].value,
+      pseudo: form[5].value,
+      jeu: form[6].value,
+      rang: form[7].value,
+      exp: form[8].value,
+      motiv: form[9].value,
+      rltracker: rlField.value || ""
+    };
 
-    if (!res.ok) {
-      document.getElementById("status").innerText = "❌ Erreur serveur";
-      return;
+    document.getElementById("status").innerText = "⏳ Envoi...";
+
+    try {
+      const res = await fetch("https://xbz-bot.onrender.com/recrutement", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      if (!res.ok) {
+        document.getElementById("status").innerText = "❌ Erreur serveur";
+        return;
+      }
+
+      document.getElementById("status").innerText = "✅ Envoyé avec succès !";
+      form.reset();
+
+    } catch (err) {
+      document.getElementById("status").innerText = "❌ Erreur connexion API";
     }
 
-    document.getElementById("status").innerText = "✅ Envoyé avec succès !";
-    form.reset();
+  });
 
-  } catch (err) {
-    document.getElementById("status").innerText = "❌ Erreur connexion API";
-  }
 });
 </script>
 
