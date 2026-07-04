@@ -180,6 +180,7 @@ footer {
         <option value="">Jeu</option>
         <option>Rocket League</option>
         <option>Warzone</option>
+				<input type="text" id="rltracker" placeholder="Lien RL Tracker (Rocket League uniquement)" style="display:none;">
       </select>
 
       <input type="text" placeholder="Rang">
@@ -212,7 +213,19 @@ document.querySelector("#form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const form = e.target;
+const jeuSelect = document.querySelector("select");
+const rlField = document.getElementById("rltracker");
 
+jeuSelect.addEventListener("change", () => {
+  if (jeuSelect.value === "Rocket League") {
+    rlField.style.display = "block";
+    rlField.required = true;
+  } else {
+    rlField.style.display = "none";
+    rlField.required = false;
+    rlField.value = "";
+  }
+});
   const data = {
     nom: form[0].value,
     age: form[1].value,
@@ -224,6 +237,7 @@ document.querySelector("#form").addEventListener("submit", async (e) => {
     rang: form[7].value,
     exp: form[8].value,
     motiv: form[9].value
+		rltracker: rlField.value || ""
   };
 
   document.getElementById("status").innerText = "⏳ Envoi...";
