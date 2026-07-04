@@ -260,18 +260,18 @@ const inputs = form.querySelectorAll("input, select, textarea");
     status.style.color = "#ffb347";
 
     const data = {
-      nom: form[0].value,
-      age: form[1].value,
-      pays1: form[2].value,
-      pays2: form[3].value,
-      discord: form[4].value,
-      pseudo: form[5].value,
-      jeu: form[6].value,
-      rang: form[7].value,
-      exp: form[8].value,
-      motiv: form[9].value,
-      rltracker: rlField.value || ""
-    };
+  nom: inputs[0].value,
+  age: inputs[1].value,
+  pays1: inputs[2].value,
+  pays2: inputs[3].value,
+  discord: inputs[4].value,
+  pseudo: inputs[5].value,
+  jeu: inputs[6].value,
+  rang: inputs[7].value,
+  exp: inputs[8].value,
+  motiv: inputs[9].value,
+  rltracker: rlField.value || ""
+};
 
     try {
       const res = await fetch("https://xbz-bot.onrender.com/recrutement", {
