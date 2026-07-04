@@ -235,15 +235,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // AFFICHAGE RL TRACKER
   // =========================
   jeuSelect.addEventListener("change", () => {
-    if (jeuSelect.value === "Rocket League") {
-      rlField.style.display = "block";
-      rlField.required = true;
-    } else {
-      rlField.style.display = "none";
-      rlField.required = false;
-      rlField.value = "";
-    }
-  });
+  if (jeuSelect.value === "Rocket League") {
+    rlField.style.display = "block";
+  } else {
+    rlField.style.display = "none";
+    rlField.value = "";
+  }
+});
 
   // =========================
   // ENVOI FORMULAIRE
