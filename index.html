@@ -9,117 +9,125 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0a0a0f;
+  background: radial-gradient(circle at top, #0f0f18, #050509);
   color: white;
+  overflow-x: hidden;
 }
 
-/* HEADER */
-header {
-  text-align: center;
-  padding: 80px 20px;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
-  border-bottom: 2px solid #ff7a00;
-}
-
-header h1 {
-  font-size: 55px;
-  margin: 0;
-  color: #ff7a00;
-  letter-spacing: 2px;
-}
-
-header p {
-  color: #aaa;
-  margin-top: 10px;
-}
-
-/* NAV */
+/* NAV FLOAT */
 nav {
-  margin-top: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
 }
 
 nav a {
-  color: white;
+  color: #aaa;
   text-decoration: none;
-  margin: 0 15px;
   font-weight: bold;
+  transition: 0.3s;
+  letter-spacing: 1px;
 }
 
 nav a:hover {
   color: #ff7a00;
 }
 
-/* BUTTON */
+/* HERO FULL SCREEN */
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+}
+
+header h1 {
+  font-size: 90px;
+  margin: 0;
+  color: #ff7a00;
+  text-shadow: 0 0 40px rgba(255,122,0,0.3);
+}
+
+header p {
+  color: #aaa;
+  font-size: 18px;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+/* CTA BUTTON */
 .btn {
-  display: inline-block;
   margin-top: 25px;
-  padding: 12px 25px;
-  border-radius: 10px;
+  padding: 14px 30px;
   background: linear-gradient(90deg, #ff7a00, #ff3c00);
   color: black;
   font-weight: bold;
+  border-radius: 12px;
   text-decoration: none;
+  transition: 0.3s;
 }
 
-/* SECTIONS */
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255,122,0,0.4);
+}
+
+/* SECTIONS STYLE G2 */
 section {
-  padding: 70px 20px;
-  text-align: center;
+  padding: 120px 10%;
 }
 
 .card {
-  background: #15151b;
-  padding: 25px;
-  border-radius: 12px;
-  max-width: 700px;
-  margin: auto;
-  border: 1px solid #222;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,122,0,0.15);
+  border-radius: 18px;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
 }
 
-/* FORM */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
+.card:hover {
+  transform: translateY(-5px);
+  border: 1px solid rgba(255,122,0,0.4);
 }
 
-<select id="jeuSelect" required>
-  <option value="">Jeu</option>
-  <option value="Rocket League">Rocket League</option>
-  <option value="Warzone">Warzone</option>
-</select>
-
-<input type="text" id="rltracker"
-placeholder="Lien RL Tracker (Rocket League uniquement)"
-style="display:none;">
-
-textarea {
-  height: 100px;
-  resize: none;
+/* TITRES */
+h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
-button {
-  padding: 12px 30px;
-  border: none;
+/* FORM STYLE PREMIUM */
+input, select, textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 14px;
+  margin: 8px 0;
   border-radius: 10px;
-  background: linear-gradient(90deg, #ff7a00, #ff3c00);
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
+  border: none;
+  background: #111;
+  color: white;
 }
 
-button:hover {
-  transform: scale(1.05);
+input:focus, textarea:focus, select:focus {
+  outline: 1px solid #ff7a00;
 }
 
-/* FOOTER */
+/* FOOTER CLEAN */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 40px;
   color: #666;
-  margin-top: 30px;
 }
 </style>
 </head>
