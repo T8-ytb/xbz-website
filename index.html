@@ -17,18 +17,22 @@ body {
 /* NAV FLOAT */
 nav {
   position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 18px 40px;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: fit-content;
 
   display: flex;
-  justify-content: center;
-  gap: 28px;
+  gap: 12px;
 
-  background: rgba(10, 10, 15, 0.55);
-  backdrop-filter: blur(14px);
+  padding: 12px 16px;
 
-  border-bottom: 1px solid rgba(255, 122, 0, 0.15);
+  background: rgba(15,15,20,.80);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,122,0,.15);
+  border-radius: 18px;
 
   z-index: 1000;
 }
