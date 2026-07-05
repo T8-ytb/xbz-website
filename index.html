@@ -553,7 +553,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rlField = document.getElementById("rltracker");
 const inputs = form.querySelectorAll("input, select, textarea");
 // AFFICHAGE RL TRACKER
-jeuSelect.addEventListener("change", () => {
+function updateRL() {
   if (jeuSelect.value === "Rocket League") {
     rlField.style.display = "block";
     rlField.style.marginTop = "10px";
@@ -561,7 +561,12 @@ jeuSelect.addEventListener("change", () => {
     rlField.style.display = "none";
     rlField.value = "";
   }
-});
+}
+
+jeuSelect.addEventListener("change", updateRL);
+
+// 🔥 important : au chargement
+updateRL();
 
   // =========================
   // ENVOI FORMULAIRE
