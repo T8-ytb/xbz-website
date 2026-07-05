@@ -591,6 +591,10 @@ section {
 document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.querySelector("#form");
+ if (!form) {
+  console.error("Formulaire introuvable");
+  return;
+}
   const status = document.getElementById("status");
   const jeuSelect = document.getElementById("jeuSelect");
   const rlField = document.getElementById("rltracker");
@@ -598,7 +602,13 @@ const inputs = form.querySelectorAll("input, select, textarea");
 // AFFICHAGE RL TRACKER
 function updateRL() {
   if (jeuSelect.value === "Rocket League") {
-    rlField.style.display = "block";
+   rlField.style.display = "block";
+rlField.style.opacity = "0";
+rlField.style.transition = "0.3s";
+
+setTimeout(() => {
+  rlField.style.opacity = "1";
+}, 10);
     rlField.style.marginTop = "10px";
   } else {
     rlField.style.display = "none";
