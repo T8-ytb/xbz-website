@@ -7,7 +7,11 @@
 <title>🦇 XBZ ESPORT</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-body {
+html, body {
+  background: #050509;
+}
+ 
+ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: radial-gradient(circle at top, #0f0f18, #050509);
@@ -166,29 +170,18 @@ body::after {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.12; /* IMPORTANT : beaucoup plus subtil */
-}
-
-body::before {
-  left: 0;
-  background: radial-gradient(circle at left, #ff7a00, transparent 70%);
-}
-
-body::after {
-  right: 0;
-  background: radial-gradient(circle at right, #ff3c00, transparent 70%);
+  filter: blur(2px);
+  opacity: 0.08;
 }
 
 body::before {
   left: 0;
   background: radial-gradient(circle at left, rgba(255,122,0,0.25), transparent 70%);
-  filter: blur(2px);
 }
 
 body::after {
   right: 0;
-  background: radial-gradient(circle at right, rgba(255,122,0,0.20), transparent 70%);
-  filter: blur(2px);
+  background: radial-gradient(circle at right, rgba(255,60,0,0.20), transparent 70%);
 }
 
 /* petites particules plus visibles */
