@@ -347,6 +347,35 @@ section {
 
   animation: pulse 1.6s infinite;
 }
+  @media (max-width: 768px) {
+
+  nav {
+    width: 95%;
+    max-width: 95%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    gap: 8px;
+    padding: 10px 12px;
+
+    border-radius: 14px;
+  }
+
+  nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+}
 </style>
 </head>
 
