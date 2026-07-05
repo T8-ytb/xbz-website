@@ -304,7 +304,29 @@ footer {
   50%{transform:scale(1.05); opacity:0.8;}
   100%{transform:scale(1); opacity:1;}
 }
+@media (max-width: 768px) {
 
+  nav {
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    gap: 8px;
+    padding: 10px;
+
+    border-radius: 14px;
+  }
+
+  nav a {
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+}
   html {
   scroll-behavior: smooth;
 }
