@@ -166,6 +166,17 @@ body::after {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.12; /* IMPORTANT : beaucoup plus subtil */
+}
+
+body::before {
+  left: 0;
+  background: radial-gradient(circle at left, #ff7a00, transparent 70%);
+}
+
+body::after {
+  right: 0;
+  background: radial-gradient(circle at right, #ff3c00, transparent 70%);
 }
 
 body::before {
