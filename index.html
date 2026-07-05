@@ -573,14 +573,14 @@ updateRL();
   // =========================
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const age = parseInt(document.getElementById("age").value);
+
+const age = parseInt(document.getElementById("age").value);
 
 if (age < 16) {
-  status.innerText = "❌ Tu dois avoir au minimum 16 ans pour candidater.";
+  status.innerText = "❌ Tu dois avoir au minimum 16 ans pour rejoindre XBZ.";
   status.style.color = "red";
-  return;
+  return; // 🔥 IMPORTANT = bloque l'envoi
 }
-
     status.innerText = "⏳ Envoi en cours...";
     status.style.color = "#ffb347";
 
