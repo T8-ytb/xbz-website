@@ -645,11 +645,13 @@ if (age < 16) {
 
       if (!res.ok) {
         status.innerText = "❌ Erreur serveur";
+       document.querySelector(".btn-submit").disabled = false;
         status.style.color = "red";
         return;
       }
 
       status.innerText = "✅ Candidature envoyée avec succès !";
+     document.querySelector(".btn-submit").disabled = false;
       status.style.color = "#00ff88";
 
       form.reset();
@@ -657,6 +659,7 @@ if (age < 16) {
 
     } catch (err) {
       status.innerText = "❌ Erreur de connexion API";
+     document.querySelector(".btn-submit").disabled = false;
       status.style.color = "red";
     }
   });
