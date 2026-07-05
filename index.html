@@ -617,6 +617,7 @@ if (age < 16) {
   return; // 🔥 IMPORTANT = bloque l'envoi
 }
     status.innerText = "⏳ Envoi en cours...";
+   document.querySelector(".btn-submit").disabled = true;
     status.style.color = "#ffb347";
 
   const data = {
