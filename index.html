@@ -560,7 +560,10 @@ const inputs = form.querySelectorAll("input, select, textarea");
   // =========================
   jeuSelect.addEventListener("change", () => {
   if (jeuSelect.value === "Rocket League") {
+  jeuSelect.addEventListener("change", () => {
+  if (jeuSelect.value === "Rocket League") {
     rlField.style.display = "block";
+    rlField.style.marginTop = "10px";
   } else {
     rlField.style.display = "none";
     rlField.value = "";
