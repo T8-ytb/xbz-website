@@ -402,6 +402,33 @@ body::after {
   background-image: radial-gradient(rgba(255,122,0,0.05) 1px, transparent 1px);
   background-size: 40px 40px;
 }
+   /* DECOR COTES AMBIANCE GAMING */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::before {
+  left: 0;
+  background: radial-gradient(circle at left, rgba(255,122,0,0.18), transparent 70%);
+}
+
+body::after {
+  right: 0;
+  background: radial-gradient(circle at right, rgba(255,122,0,0.12), transparent 70%);
+}
+
+/* PETITES PARTICULES */
+body {
+  background-image: radial-gradient(rgba(255,122,0,0.06) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
 </style>
 </head>
 
