@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
+  html {
+  scroll-behavior: smooth;
+}
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -311,13 +314,17 @@ footer {
   50%{transform:scale(1.05); opacity:0.8;}
   100%{transform:scale(1); opacity:1;}
 }
- .open{
+.open{
   background: linear-gradient(90deg, #ffb347, #ff7a00);
   color: #111;
+  border: 1px solid rgba(255,122,0,0.8);
+
+  box-shadow: 0 0 25px rgba(255,122,0,0.6);
+
   font-weight: 900;
-  border: 1px solid rgba(255,122,0,0.6);
-  box-shadow: 0 0 20px rgba(255,122,0,0.5);
-  animation: pulse 1.5s infinite;
+  letter-spacing: 1px;
+
+  animation: pulse 1.6s infinite;
 }
 </style>
 </head>
@@ -327,14 +334,13 @@ footer {
 <header>
   <h1>🦇 XBZ ESPORT</h1>
 <p>Rejoindre XBZ • Discord ouvert aux joueurs motivés</p>
-  <nav>
-    <a href="#accueil">Accueil</a>
+ <nav>
+  <a href="#accueil">Accueil</a>
   <a href="#about">Qui sommes-nous</a>
- <a href="#personnel">Équipes</a>
-    <a href="#recrutement">Recrutement</a>
-    <a href="#support">Support</a>
-  </nav>
-
+  <a href="#equipes">Équipes</a>
+  <a href="#recrutement">Recrutement</a>
+  <a href="#support">Support</a>
+</nav>
   <a class="btn" href="https://discord.gg/w7s3rBPsZ6" target="_blank">Rejoindre Discord</a>
 </header>
 
