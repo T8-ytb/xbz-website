@@ -161,7 +161,35 @@ header h1 {
   color: #ff7a00;
   text-shadow: 0 0 40px rgba(255,122,0,0.3);
 }
+.logo{
+  width:220px;
+  margin-bottom:20px;
 
+  filter:
+    drop-shadow(0 0 15px rgba(255,122,0,.7))
+    drop-shadow(0 0 40px rgba(255,122,0,.35));
+
+  animation: float 3s ease-in-out infinite;
+}
+
+.title{
+  font-size:70px;
+  font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif;
+  letter-spacing:5px;
+  text-transform:uppercase;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0px);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
+  100%{
+    transform:translateY(0px);
+  }
+}
 header p {
   color: #aaa;
   font-size: 18px;
