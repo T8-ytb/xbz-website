@@ -484,29 +484,27 @@ section {
 
     <h2>📝 Recrutement</h2>
 
-    <form id="form">
+    <input id="nom" type="text" placeholder="Nom + Prénom" required>
+<input id="age" type="number" placeholder="Âge" required>
 
-      <input type="text" placeholder="Nom + Prénom" required>
-      <input type="number" placeholder="Âge" required>
+<input id="pays1" type="text" placeholder="Pays résidence" required>
+<input id="pays2" type="text" placeholder="Pays naissance" required>
 
-      <input type="text" placeholder="Pays résidence" required>
-      <input type="text" placeholder="Pays naissance" required>
+<input id="discord" type="text" placeholder="Discord" required>
+<input id="pseudo" type="text" placeholder="Pseudo jeu" required>
 
-      <input type="text" placeholder="Discord" required>
-      <input type="text" placeholder="Pseudo jeu" required>
+<select id="jeuSelect" required>
+  <option value="">Jeu</option>
+  <option value="Rocket League">Rocket League</option>
+  <option value="Warzone">Warzone</option>
+</select>
 
-      <select id="jeuSelect" required>
-        <option value="">Jeu</option>
-        <option value="Rocket League">Rocket League</option>
-        <option value="Warzone">Warzone</option>
-      </select>
+<input id="rltracker" type="text" placeholder="Lien RL Tracker" style="display:none;">
 
-     <input type="text" id="rltracker" placeholder="Lien RL Tracker" style="display:none;">
+<input id="rang" type="text" placeholder="Rang">
 
-      <input type="text" placeholder="Rang">
-
-      <textarea placeholder="Expérience"></textarea>
-      <textarea placeholder="Motivation"></textarea>
+<textarea id="exp" placeholder="Expérience"></textarea>
+<textarea id="motiv" placeholder="Motivation"></textarea>
 
       <button class="btn-submit" type="submit">
   Envoyer candidature
