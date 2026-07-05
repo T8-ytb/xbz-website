@@ -572,18 +572,18 @@ jeuSelect.addEventListener("change", () => {
     status.innerText = "⏳ Envoi en cours...";
     status.style.color = "#ffb347";
 
-   const data = {
-  nom: form.querySelectorAll("input")[0].value,
-  age: form.querySelectorAll("input")[1].value,
-  pays1: form.querySelectorAll("input")[2].value,
-  pays2: form.querySelectorAll("input")[3].value,
-  discord: form.querySelectorAll("input")[4].value,
-  pseudo: form.querySelectorAll("input")[5].value,
-  jeu: jeuSelect.value,
-  rang: form.querySelectorAll("input")[6].value,
-  exp: form.querySelectorAll("textarea")[0].value,
-  motiv: form.querySelectorAll("textarea")[1].value,
-  rltracker: rlField.value || ""
+  const data = {
+  nom: document.getElementById("nom").value,
+  age: document.getElementById("age").value,
+  pays1: document.getElementById("pays1").value,
+  pays2: document.getElementById("pays2").value,
+  discord: document.getElementById("discord").value,
+  pseudo: document.getElementById("pseudo").value,
+  jeu: document.getElementById("jeuSelect").value,
+  rang: document.getElementById("rang").value,
+  exp: document.getElementById("exp").value,
+  motiv: document.getElementById("motiv").value,
+  rltracker: document.getElementById("rltracker").value || ""
 };
 
     try {
