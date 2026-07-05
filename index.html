@@ -297,7 +297,19 @@ footer {
   background:rgba(0,200,255,0.12);
   color:#7fe6ff;
   box-shadow:0 0 12px rgba(0,200,255,0.2);
+}
+  .open{
+  background:rgba(255,122,0,0.15);
+  color:#ffb37a;
+  border:1px solid rgba(255,122,0,0.3);
+  box-shadow:0 0 10px rgba(255,122,0,0.2);
+  animation:pulse 2s infinite;
+}
 
+@keyframes pulse{
+  0%{transform:scale(1); opacity:1;}
+  50%{transform:scale(1.05); opacity:0.8;}
+  100%{transform:scale(1); opacity:1;}
 }
 </style>
 </head>
@@ -354,12 +366,14 @@ footer {
   <h3>🎮 Joueurs Rocket League</h3>
   <p>Roster compétitif</p>
   <span class="role member">JOUEUR</span>
+<span class="role open">RECRUTEMENT OUVERT</span>
 </div>
 
   <div class="team-card">
   <h3>🎮 Joueurs Warzone</h3>
   <p>Roster compétitif</p>
   <span class="role member">JOUEUR</span>
+<span class="role open">RECRUTEMENT OUVERT</span>
 </div>
 
   <!-- FONDATEURS -->
@@ -381,6 +395,7 @@ footer {
   <h3>🎨 Graphistes</h3>
   <p>Création visuelle & branding</p>
 <span class="role creative">CRÉATIF</span>
+<span class="role open">RECRUTEMENT OUVERT</span>
 </div>
 
   <!-- MONTEURS -->
@@ -388,6 +403,7 @@ footer {
   <h3>🎬 Monteurs</h3>
   <p>Montage clips & contenu</p>
 <span class="role creative">CRÉATIF</span>
+<span class="role open">RECRUTEMENT OUVERT</span>
 </div>
 
   <!-- COMMUNITY MANAGER -->
