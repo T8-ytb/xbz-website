@@ -295,11 +295,18 @@ input, select, textarea {
   width: 100%;
   max-width: 500px;
   padding: 14px;
-  margin: 8px 0;
+  margin: 8px auto;
   border-radius: 10px;
   border: none;
   background: #111;
   color: white;
+  display: block;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input:focus, textarea:focus, select:focus {
