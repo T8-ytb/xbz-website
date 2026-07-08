@@ -645,6 +645,7 @@ const inputs = form.querySelectorAll("input, select, textarea");
 function updateRL() {
   if (jeuSelect.value === "Rocket League") {
    rlField.style.display = "block";
+   document.getElementById("rl-info").style.display = "block";
 rlField.style.opacity = "0";
 rlField.style.transition = "0.3s";
 
@@ -654,6 +655,7 @@ setTimeout(() => {
     rlField.style.marginTop = "10px";
   } else {
     rlField.style.display = "none";
+   document.getElementById("rl-info").style.display = "none";
     rlField.value = "";
   }
 }
